@@ -5,13 +5,11 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.CompoundButton;
 import android.widget.FrameLayout;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
@@ -56,10 +54,9 @@ public class NavigationFragment extends Fragment {
      * Init demo settings
      */
     private void initDemoSettings(View view) {
-        final MainActivity demoActivity = (MainActivity) getActivity();
+        final HomeActivity demoActivity = (HomeActivity) getActivity();
 
         demoActivity.updateBottomNavigationColor(true);
-
         demoActivity.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
     }
 

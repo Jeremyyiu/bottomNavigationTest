@@ -1,12 +1,9 @@
 package com.example.jeremy.bottomnavigationtest;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDelegate;
 
@@ -14,16 +11,14 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationAdapter;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
-import com.aurelhubert.ahbottomnavigation.notification.AHNotification;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     private NavigationFragment currentFragment;
     private NavigationViewPagerAdapter adapter;
     private AHBottomNavigationAdapter navigationAdapter;
-    private ArrayList<AHBottomNavigationItem> bottomNavigationItems = new ArrayList<>();
     private int[] tabColors;
     private Handler handler = new Handler();
 
@@ -62,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         navigationAdapter.setupWithBottomNavigation(bottomNavigation, tabColors);
 
         bottomNavigation.setTranslucentNavigationEnabled(true);
+        setBottomNavigationScrollVisibility(false);
 
         bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
@@ -122,10 +118,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Set whether the bottom Navigation is visible when scrolling down
+     */
+    public void setBottomNavigationScrollVisibility(boolean isVisible) {
+        bottomNavigation.setBehaviorTranslationEnabled(isVisible);
+    }
+    /**
      * Reload activity
      */
     public void reload() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, HomeActivity.class));
         finish();
     }
 }
